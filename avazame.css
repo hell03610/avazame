@@ -1,0 +1,97 @@
+#tasklist-horizontal .task-group {
+  width: 270px;
+  padding: 4px;
+  margin-right: 4px;
+}
+
+
+#tasklist-horizontal .flag-zone .assigned-to-zone { display: none; }
+#tasklist-horizontal .flag-zone .task-status { display: none; }
+#tasklist-horizontal .flag-zone .timer-icon { display: none; }
+#tasklist-horizontal .flag-zone .comment-count { display: none; }
+#tasklist-horizontal .flag-zone .actual-time  { display: none; }
+
+#tasklist-horizontal .task-item .percent-progress { display: none; }
+
+#tasklist-horizontal .add-task-zone > a {
+  font-size: 12px;
+  color: #6b778c;
+  height: initial;
+  line-height: initial;
+  border: none;
+  border-radius: 0;
+  padding: 4px 8px;
+  text-align: left;
+  font-weight: normal;
+  background-color: initial;
+}
+
+#tasklist-horizontal .add-task-zone > a:hover {
+  background-color: rgba(9,30,66,.08);
+}
+
+#tasklist-horizontal .group-settings .add-task-link { display: none; }
+#tasklist-horizontal .group-settings .collapse-expand { display: none; }
+#tasklist-horizontal .flag-zone { margin-top: 0; display: block; }
+#tasklist-horizontal .flag-zone > div {
+  display: inline;
+  margin-right: 0;
+  height: auto;
+}
+
+#tasklist-horizontal .group-title { margin-right: 30px; }
+#tasklist-horizontal .group-settings > div.dropdown > a {
+  margin-top: 7px;
+  padding: 5px;
+}
+#tasklist-horizontal .task-handle { top: 0 }
+
+#tasklist-horizontal .dateduestring {
+  float: none;
+  margin: 0;
+  font-size: 10px;
+  color: white;
+  padding: 4px;
+  border-radius: 3px;
+  background-color: rgb(233, 233, 233);
+  color: #555;
+  display: inline;
+  height: auto;
+}
+
+#tasklist-horizontal .dateduestring:before {
+  content: '🕓 ';
+}
+
+#tasklist-horizontal .task-wrap {
+  padding: 6px 8px;
+}
+
+#create-task-inline-form .task-status  { display: none; }
+#create-task-inline-form .inline-field  { display: none; }
+#task-pane.horizontal #create-task-inline {
+  padding: 6px 8px 2px;
+}
+
+#create-task-inline-form #new-task-inline-title {
+  font-size: 12px;
+}
+
+#tasklist-horizontal .task-title {
+  font-size: 0.9em;
+  margin-bottom: 0px;
+}
+
+#tasklist-horizontal .tag {
+  font-size: 9px;
+  padding: 0px 6px;
+}
+
+#create-task-inline-form #new-task-inline-title[contentEditable="true"]:empty:before {
+  content: attr(data-text);
+  color: #b3c3dc;
+  font-size: 12px;
+}
+
+.ui-pnotify .alert-success { display: none; }
+

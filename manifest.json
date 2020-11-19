@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Avazame",
+  "version": "1.0",
+  "description": "Tuning Avaza Project dashboard and avaza project cards",
+  "icons": {
+    "48": "icons/icon-100.png"
+  },
+
+"content_scripts": [
+    {
+      "matches": ["*://*.avaza.com/project/view/*"],
+      "js": ["avazame.js"],
+      "css": ["avazame.css","card.css"]
+    }
+  ]
+
+}

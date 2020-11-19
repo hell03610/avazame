@@ -1,0 +1,82 @@
+#view-task-body .view-task-project-zone { display: none; }
+#view-task-body #view-task-tabs { display: none; }
+#view-task-body #view-task-form > div:nth-child(5) { display: none; }
+#view-task-body #view-task-form > div:nth-child(6) > div:nth-child(2) { display: none; }
+#view-task-body #view-task-form > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) { display: none; }
+#view-task-body #view-task-follower-zone { display: none; }
+#view-task-details { padding: 0; border: none; }
+#view-task-modal #view-task-details { padding-top: 0; }
+
+#view-task-form > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
+  grid-area: duedate;
+  width: 100%;
+}
+
+#view-task-form #view-task-description-wrapper {
+  grid-area: description;
+}
+
+
+#view-task-form #view-task-tag-zone {
+  grid-area: tags;
+  width: 100%;
+  float: none !important;
+}
+
+#view-task-form #view-task-attachment-zone {
+  grid-area: attach;
+}
+
+#view-task-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas:
+    "tags duedate"
+    "description description"
+    "attach attach";
+}
+
+.task-container h5 {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 6px;
+}
+
+.field-pair .lbl-above {
+  color: #333333;
+  font-weight: 500;
+}
+
+#view-task-description-wrapper > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
+  display: none;
+}
+
+#view-task-description-wrapper .show-placeholder  { min-height: 80px; }
+#view-task-description-wrapper .show-placeholder .fr-element { min-height: 80px !important; }
+#view-task-description-wrapper .fr-wrapper .fr-element { min-height: 80px !important; }
+
+#new-response-content > div:nth-child(1) > div:nth-child(1) {
+  display: none !important;
+}
+
+#new-response-content .show-placeholder { min-height: 80px; }
+#new-response-content .show-placeholder .fr-element { min-height: 80px !important; }
+#new-response-content .fr-wrapper .fr-element { min-height: 80px !important; }
+
+#view-task-description-wrapper .fr-element > p {
+  font-size: 12px;
+  margin: 0;
+}
+
+#new-response-content .fr-element > p {
+  font-size: 12px;
+  margin: 0;
+}
+
+#new-response-internal-note { display: none !important; }
+#new-response-attachment-add { display: none !important; }
+
+#view-task-discussion-zone { padding-top: 45px; }
+#view-task-modal #task-created { color: #b9c3cc; }
