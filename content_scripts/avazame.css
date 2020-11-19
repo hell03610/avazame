@@ -1,3 +1,8 @@
+#project-status { display: none; }
+#project-notes-area { padding-top: 5px; }
+.sub-line { display: none; }
+
+
 #tasklist-horizontal .task-group {
   width: 270px;
   padding: 4px;
@@ -12,6 +17,26 @@
 #tasklist-horizontal .flag-zone .actual-time  { display: none; }
 
 #tasklist-horizontal .task-item .percent-progress { display: none; }
+
+#project-header #project-title { font-size: 18px; display: inline; }
+#project-header .project-settings { display: none; }
+#project-header .btn {
+  background-color: #e6e6e6;
+  color: #222;
+  font-size: 12px;
+  position: relative;
+  top: -3px;
+  margin-right: 10px;
+  padding: 4px 8px;
+}
+
+#project-header .btn i { font-size: 16px; margin-right: 2px; }
+#project-header .btn:hover {
+  background-color: rgba(12,12,12,0.3);
+}
+
+.universal-add > a .add-circle { background-color: #7d8892; }
+.universal-add > a:hover .add-circle { background-color: #959ea7; }
 
 #tasklist-horizontal .add-task-zone > a {
   font-size: 12px;
@@ -86,6 +111,7 @@
   font-size: 9px;
   padding: 0px 6px;
 }
+  color: #a8aaac;
 
 #create-task-inline-form #new-task-inline-title[contentEditable="true"]:empty:before {
   content: attr(data-text);

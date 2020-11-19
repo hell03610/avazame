@@ -10,8 +10,8 @@
 "content_scripts": [
     {
       "matches": ["*://*.avaza.com/project/view/*"],
-      "js": ["avazame.js"],
-      "css": ["avazame.css","card.css"]
+      "js": ["content_scripts/avazame.js"],
+      "css": ["content_scripts/avazame.css","content_scripts/card.css"]
     }
   ]
 
