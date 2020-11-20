@@ -64,7 +64,7 @@ var declutterHeader = function() {
   document.getElementById('task-search-zone').style.display = 'none';
   document.getElementsByClassName('global-timer-desktop desktop')[0].style.display = 'none';
   document.querySelector('div.hidden-xs:nth-child(3) > a:nth-child(1)').style.display = 'none';
-
+  document.getElementById('project-filter-area').style.display = 'none';
 }
 
 var processTaskArea = function() {

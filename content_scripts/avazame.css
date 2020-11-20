@@ -2,9 +2,9 @@
 #project-notes-area { padding-top: 5px; }
 .sub-line { display: none; }
 
-
+#tasklist-horizontal { padding: 0 10px 0 15px; margin-top: 15px; }
 #tasklist-horizontal .task-group {
-  width: 270px;
+  width: 250px;
   padding: 4px;
   margin-right: 4px;
 }
@@ -17,6 +17,12 @@
 #tasklist-horizontal .flag-zone .actual-time  { display: none; }
 
 #tasklist-horizontal .task-item .percent-progress { display: none; }
+#tasklist-horizontal .task-item {
+  width: 240px;
+  box-shadow: 0 1px 0 rgba(9,30,66,.25);
+  border-radius: 3px;
+  border: none;
+}
 
 #project-header #project-title { font-size: 18px; display: inline; }
 #project-header .project-settings { display: none; }
@@ -69,7 +75,7 @@
   margin-top: 7px;
   padding: 5px;
 }
-#tasklist-horizontal .task-handle { top: 0 }
+#tasklist-horizontal .task-handle { top: -3px; }
 
 #tasklist-horizontal .dateduestring {
   float: none;
@@ -90,6 +96,7 @@
 
 #tasklist-horizontal .task-wrap {
   padding: 6px 8px;
+  border-radius: 3px;
 }
 
 #create-task-inline-form .task-status  { display: none; }
@@ -105,13 +112,13 @@
 #tasklist-horizontal .task-title {
   font-size: 0.9em;
   margin-bottom: 0px;
+  margin-right: 20px;
 }
 
 #tasklist-horizontal .tag {
   font-size: 9px;
   padding: 0px 6px;
 }
-  color: #a8aaac;
 
 #create-task-inline-form #new-task-inline-title[contentEditable="true"]:empty:before {
   content: attr(data-text);
