@@ -23,14 +23,11 @@ function addStar() {
     });
   });
   element.insertAdjacentElement('afterend', a);
-  updateCurrentStar();
 }
 
-function updateCurrentStar() {
-  browser.runtime.sendMessage({code: 'fetch-starred-projects'}).then((response) => {
-    let starred = response.projects[projectId] && response.projects[projectId].starred;
+function updateCurrentStar(projects) {
+    let starred = projects[projectId] && projects[projectId].starred;
     updateStarStatus(starred);
-  });
 }
 
 var addFilter = function() {
@@ -72,20 +69,19 @@ var addCalendar = function() {
 }
 
 
-function addQuickNavigation() {
+function addBoardNavigationButton() {
   let element = document.querySelector('.right-header-list');
   let li = document.createElement('li');
   li.classList.add('hidden-xs');
   li.classList.add('icons');
   let a = document.createElement('a');
   a.title = 'Boards';
-  a.href = '#';
   a.addEventListener('click', function(el) {
     let boardList = document.querySelector('.section-boards');
-    if(boardList.style.display == 'none') {
-      boardList.style.display = 'block';
-    }else {
+    if(boardList.style.display == 'block') {
       boardList.style.display = 'none';
+    }else {
+      boardList.style.display = 'block';
     }
   });
   let i = document.createElement('i');
@@ -96,15 +92,11 @@ function addQuickNavigation() {
   element.prepend(li);
 }
 
-function addBoardList() {
-  let projects = {'37568': { id: 37568, name: 'test 37568'},
-                  '37405': { id: 37405, name: 'test 37405'} }
-
+function addBoardNavigationMenu(projects) {
   let section = document.createElement('section');
   section.classList.add('section-boards');
   let ul = document.createElement('ul');
   //todo: ordenar por nombre
-  console.log('addboarlist');
   for(const key in projects) {
     var li = document.createElement('li');
     var a = document.createElement('a');
@@ -139,6 +131,11 @@ var processTaskArea = function() {
   for(var i=0; i<addTask.length; i=i+1) { addTask[i].innerText = "+ Add another card"; }
 }
 
+function fetchProjects() {
+  return browser.runtime.sendMessage({code: 'fetch-starred-projects'}).then((response) => {
+    return Promise.resolve(response.projects);
+  });
+}
 
 const projectId = document.getElementById('ProjectID').value;
 const projectName = document.getElementById('project-title').innerText;
@@ -147,8 +144,11 @@ declutterHeader();
 addStar();
 addFilter();
 addCalendar();
-addQuickNavigation();
-addBoardList();
+addBoardNavigationButton();
+fetchProjects().then(projects => {
+  updateCurrentStar(projects);
+  addBoardNavigationMenu(projects);
+});
 
 const area = document.querySelector('#task-area');
 let mo = new MutationObserver(mutations => processTaskArea())
