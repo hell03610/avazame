@@ -129,3 +129,36 @@
 
 .ui-pnotify .alert-success { display: none; }
 
+.section-boards {
+  position: absolute;
+  display: none;
+  top: 45px;
+  right: 50px;
+  border: 1px solid #AAA;
+  min-width: 200px;
+  width: 200px;
+  background-color: white;
+}
+
+.section-boards ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0.9em;
+}
+
+.section-boards ul li {
+  padding: 10px 10px;
+}
+
+.section-boards ul li:hover {
+  background-color: whitesmoke;
+}
+
+.section-boards ul li a {
+  color: rgb(51, 51, 51);
+}
+
+.section-boards ul li a:hover {
+  text-decoration: none;
+}

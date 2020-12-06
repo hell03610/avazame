@@ -72,6 +72,52 @@ var addCalendar = function() {
 }
 
 
+function addQuickNavigation() {
+  let element = document.querySelector('.right-header-list');
+  let li = document.createElement('li');
+  li.classList.add('hidden-xs');
+  li.classList.add('icons');
+  let a = document.createElement('a');
+  a.title = 'Boards';
+  a.href = '#';
+  a.addEventListener('click', function(el) {
+    let boardList = document.querySelector('.section-boards');
+    if(boardList.style.display == 'none') {
+      boardList.style.display = 'block';
+    }else {
+      boardList.style.display = 'none';
+    }
+  });
+  let i = document.createElement('i');
+  i.classList.add('fab');
+  i.classList.add('fa-trello');
+  a.appendChild(i);
+  li.appendChild(a);
+  element.prepend(li);
+}
+
+function addBoardList() {
+  let projects = {'37568': { id: 37568, name: 'test 37568'},
+                  '37405': { id: 37405, name: 'test 37405'} }
+
+  let section = document.createElement('section');
+  section.classList.add('section-boards');
+  let ul = document.createElement('ul');
+  //todo: ordenar por nombre
+  console.log('addboarlist');
+  for(const key in projects) {
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = `/project/view/${key}`;
+    a.setAttribute('data-id', key);
+    a.innerText = projects[key].name;
+    li.appendChild(a);
+    ul.appendChild(li);
+  }
+  section.appendChild(ul);
+  document.querySelector('.scoop-header').appendChild(section);
+}
+
 var declutterHeader = function() {
   document.getElementById('project-estimate-actual-totals').style.display = 'none';
   document.getElementById('second-nav-items').style.display = 'none';
@@ -93,11 +139,6 @@ var processTaskArea = function() {
   for(var i=0; i<addTask.length; i=i+1) { addTask[i].innerText = "+ Add another card"; }
 }
 
-function setStarredProjects(request) {
-  document.querySelector('#project-title').innerText = 'message';
-  console.log('script', request);
-}
-
 
 const projectId = document.getElementById('ProjectID').value;
 const projectName = document.getElementById('project-title').innerText;
@@ -106,6 +147,8 @@ declutterHeader();
 addStar();
 addFilter();
 addCalendar();
+addQuickNavigation();
+addBoardList();
 
 const area = document.querySelector('#task-area');
 let mo = new MutationObserver(mutations => processTaskArea())
