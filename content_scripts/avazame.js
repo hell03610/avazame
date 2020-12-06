@@ -1,4 +1,10 @@
-var addStar = function () {
+function updateStarStatus(starred) {
+  document.querySelector('#project-header .fa-star').classList.remove('far', 'fa');
+  let className = (starred) ? 'fa' : 'far';
+  document.querySelector('#project-header .fa-star').classList.add(className);
+}
+
+function addStar() {
   let element = document.querySelector('#project-header .project-settings');
 
   let a = document.createElement('a');
@@ -12,9 +18,19 @@ var addStar = function () {
   a.appendChild(text);
 
   a.addEventListener('click', function() {
-    console.log('clicked!');
+    browser.runtime.sendMessage({id: projectId, name: projectName}).then((response) => {
+      updateStarStatus(response.project.starred);
+    });
   });
   element.insertAdjacentElement('afterend', a);
+  updateCurrentStar();
+}
+
+function updateCurrentStar() {
+  browser.runtime.sendMessage({code: 'fetch-starred-projects'}).then((response) => {
+    let starred = response.projects[projectId] && response.projects[projectId].starred;
+    updateStarStatus(starred);
+  });
 }
 
 var addFilter = function() {
@@ -24,7 +40,7 @@ var addFilter = function() {
   a.classList.add('filter');
   a.classList.add('btn');
   let i = document.createElement('i');
-  i.classList.add('fa');
+  i.classList.add('far');
   i.classList.add('fa-filter');
   a.appendChild(i);
   let text = document.createTextNode("Filter");
@@ -77,6 +93,14 @@ var processTaskArea = function() {
   for(var i=0; i<addTask.length; i=i+1) { addTask[i].innerText = "+ Add another card"; }
 }
 
+function setStarredProjects(request) {
+  document.querySelector('#project-title').innerText = 'message';
+  console.log('script', request);
+}
+
+
+const projectId = document.getElementById('ProjectID').value;
+const projectName = document.getElementById('project-title').innerText;
 
 declutterHeader();
 addStar();

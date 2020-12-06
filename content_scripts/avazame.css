@@ -24,6 +24,7 @@
   border: none;
 }
 
+#project-header { margin-top: 10px; }
 #project-header #project-title { font-size: 18px; display: inline; }
 #project-header .project-settings { display: none; }
 #project-header .btn {
