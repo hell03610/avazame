@@ -10,6 +10,7 @@ function addStar() {
   let a = document.createElement('a');
   a.classList.add('star');
   a.classList.add('btn');
+  a.classList.add('hidden-xs');
   let i = document.createElement('i');
   i.classList.add('far');
   i.classList.add('fa-star');
@@ -37,6 +38,7 @@ var addFilter = function() {
   let a = document.createElement('a');
   a.classList.add('filter');
   a.classList.add('btn');
+  a.classList.add('hidden-xs');
   let i = document.createElement('i');
   i.classList.add('far');
   i.classList.add('fa-filter');
@@ -56,6 +58,7 @@ var addCalendar = function() {
   let a = document.createElement('a');
   a.classList.add('calendar');
   a.classList.add('btn');
+  a.classList.add('hidden-xs');
   let i = document.createElement('i');
   i.classList.add('far');
   i.classList.add('fa-calendar');
