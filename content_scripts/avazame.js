@@ -20,6 +20,7 @@ function addStar() {
   a.addEventListener('click', function() {
     browser.runtime.sendMessage({id: projectId, name: projectName}).then((response) => {
       updateStarStatus(response.project.starred);
+      updateBoardNavigationMenu(response.project);
     });
   });
   element.insertAdjacentElement('afterend', a);
@@ -91,6 +92,16 @@ function addBoardNavigationButton() {
   li.appendChild(a);
   element.prepend(li);
 }
+function buildBoardNavigationMenuItem(project) {
+  var li = document.createElement('li');
+  li.setAttribute('data-id', project.id);
+  var a = document.createElement('a');
+  a.href = `/project/view/${project.id}`;
+  a.innerText = project.name;
+  li.appendChild(a);
+  return li;
+}
+
 
 function addBoardNavigationMenu(dictionary) {
   let projects = [];
@@ -105,17 +116,19 @@ function addBoardNavigationMenu(dictionary) {
   div.innerText = 'Starred projects';
   let ul = document.createElement('ul');
   projects.forEach(project => {
-    var li = document.createElement('li');
-    var a = document.createElement('a');
-    a.href = `/project/view/${project.id}`;
-    a.setAttribute('data-id', project.id);
-    a.innerText = project.name;
-    li.appendChild(a);
-    ul.appendChild(li);
+   ul.appendChild(buildBoardNavigationMenuItem(project));
   });
   section.appendChild(div);
   section.appendChild(ul);
   document.querySelector('.scoop-header').appendChild(section);
+}
+
+function updateBoardNavigationMenu(project) {
+  let item = document.querySelector('.section-boards li[data-id="' + project.id + '"]');
+  let list = document.querySelector('.section-boards ul');
+  if(project.starred && item) { item.style.display = 'list-item'; }
+  if(project.starred && !item) { list.appendChild(buildBoardNavigationMenuItem(project)) };
+  if(!project.starred && item) { item.style.display = 'none'; }
 }
 
 var declutterHeader = function() {

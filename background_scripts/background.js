@@ -14,7 +14,7 @@ function handleMessage(request, sender, sendResponse) {
 
 function toggleStarred(request, sender, sendResponse) {
   let project = projects[request.id] || {};
-  project[request.id] = request.id;
+  project['id'] = request.id;
   project['name'] = request.name;
   project['starred'] = !project['starred'];
   projects[request.id] = project;
