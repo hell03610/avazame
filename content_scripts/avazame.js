@@ -95,6 +95,8 @@ function addBoardNavigationButton() {
 function addBoardNavigationMenu(projects) {
   let section = document.createElement('section');
   section.classList.add('section-boards');
+  let div = document.createElement('div');
+  div.innerText = 'Starred projects';
   let ul = document.createElement('ul');
   //todo: ordenar por nombre
   for(const key in projects) {
@@ -106,6 +108,7 @@ function addBoardNavigationMenu(projects) {
     li.appendChild(a);
     ul.appendChild(li);
   }
+  section.appendChild(div);
   section.appendChild(ul);
   document.querySelector('.scoop-header').appendChild(section);
 }

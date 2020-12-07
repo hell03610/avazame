@@ -147,6 +147,13 @@
   font-size: 0.9em;
 }
 
+.section-boards > div {
+  font-size: 0.9em;
+  font-weight: lighter;
+  color: #888;
+  padding: 10px 10px 5px 10px;
+}
+
 .section-boards ul li {
   padding: 10px 10px;
 }
