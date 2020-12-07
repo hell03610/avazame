@@ -92,22 +92,27 @@ function addBoardNavigationButton() {
   element.prepend(li);
 }
 
-function addBoardNavigationMenu(projects) {
+function addBoardNavigationMenu(dictionary) {
+  let projects = [];
+  for(const key in dictionary) {
+    projects.push(dictionary[key]);
+  }
+  projects.sort((a,b) => a.name.localeCompare(b.name));
+
   let section = document.createElement('section');
   section.classList.add('section-boards');
   let div = document.createElement('div');
   div.innerText = 'Starred projects';
   let ul = document.createElement('ul');
-  //todo: ordenar por nombre
-  for(const key in projects) {
+  projects.forEach(project => {
     var li = document.createElement('li');
     var a = document.createElement('a');
-    a.href = `/project/view/${key}`;
-    a.setAttribute('data-id', key);
-    a.innerText = projects[key].name;
+    a.href = `/project/view/${project.id}`;
+    a.setAttribute('data-id', project.id);
+    a.innerText = project.name;
     li.appendChild(a);
     ul.appendChild(li);
-  }
+  });
   section.appendChild(div);
   section.appendChild(ul);
   document.querySelector('.scoop-header').appendChild(section);
